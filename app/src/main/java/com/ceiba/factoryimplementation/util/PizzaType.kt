@@ -15,4 +15,14 @@ enum class PizzaType {
             MEATS -> "https://www.pizzaspiccolo.com.co//wp-content/uploads/2015/11/pizza-carnes-sp-1.jpg"
         }
     }
+
+    fun getName(): String{
+        return when(this){
+            ORIGINAL -> "Pepperoni"
+            SPECIAL -> "Special"
+            VEGETARIAN -> "Vegetarian"
+            MEXICAN -> "Mexican"
+            MEATS -> "Meats"
+        }
+    }
 }

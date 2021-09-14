@@ -4,7 +4,7 @@ import com.ceiba.factoryimplementation.interface_pizza.IPizza
 
 class PizzaOriginal: IPizza {
     override fun getExtraIngredients(): String {
-        return "Peperoni"
+        return "Pepperoni"
     }
 
     override fun getExtraCost(): Double {

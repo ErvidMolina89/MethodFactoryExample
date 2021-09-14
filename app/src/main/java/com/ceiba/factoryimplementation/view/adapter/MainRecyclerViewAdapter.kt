@@ -9,11 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ceiba.factoryimplementation.R
+import com.ceiba.factoryimplementation.factory_pizza.PizzaFactory
 import com.ceiba.factoryimplementation.model.Pizza
-import com.ceiba.factoryimplementation.util.addOne
-import com.ceiba.factoryimplementation.util.createToast
-import com.ceiba.factoryimplementation.util.showImage
-import com.ceiba.factoryimplementation.util.subtractOne
+import com.ceiba.factoryimplementation.util.*
 import de.hdodenhof.circleimageview.CircleImageView
 
 class MainRecyclerViewAdapter  (
@@ -34,10 +32,11 @@ class MainRecyclerViewAdapter  (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val item: Pizza = mValues[position]
-        val name = item.name?.toLowerCase()
 
         holder.image_pizza.showImage(item.imageView)
-        holder.textViewNamePizza.text = name?.substring(0,1)?.toUpperCase() + name?.substring(1)
+        holder.textViewNamePizza.text = item.name
+        holder.textViewPricePizza.text = PizzaFactory.getExtraValuesPizza(item.name!!).getExtraCost().toString()
+        holder.textViewIngredientsPizza.text = PizzaFactory.getExtraValuesPizza(item.name!!).getExtraIngredients()
 
         setOnClickListeners(holder,item)
     }
@@ -56,7 +55,7 @@ class MainRecyclerViewAdapter  (
                 quantity = quantity.subtractOne()
                 holder.buttonViewQuantity.text = quantity.toString()
                 item.count = quantity
-            } else context?.createToast("El valor ")
+            } else context?.createToast("Este es el valor minimo posible")
         }
 
         holder.buttonOrder.setOnClickListener {
