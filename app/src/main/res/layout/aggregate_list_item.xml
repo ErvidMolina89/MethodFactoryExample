@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/dimen_8dp"
+    android:padding="4dp"
+    android:layout_marginBottom="@dimen/dimen_8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageViewPizza"
+            android:layout_width="@dimen/dimen_image_list"
+            android:layout_height="@dimen/dimen_image_list"
+            android:src="@drawable/ic_launcher_background"
+            app:civ_border_color="@color/black"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/llContentName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/llContentPrice"
+            app:layout_constraintEnd_toEndOf="@+id/llContentIngredients"
+            app:layout_constraintStart_toEndOf="@+id/circleImageViewPizza"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_4dp"
+                android:text="@string/pizza"
+                android:textColor="@color/design_default_color_primary" />
+
+            <TextView
+                android:id="@+id/textViewNamePizza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/pepperoni"
+                android:textColor="@color/design_default_color_on_secondary" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llContentPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_4dp"
+            app:layout_constraintBottom_toTopOf="@+id/llContentIngredients"
+            app:layout_constraintEnd_toEndOf="@+id/llContentIngredients"
+            app:layout_constraintStart_toEndOf="@+id/circleImageViewPizza"
+            app:layout_constraintTop_toBottomOf="@+id/llContentName">
+
+            <ImageView
+                android:id="@+id/imagePricePizza"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_price"
+                app:tint="@color/design_default_color_primary" />
+
+            <TextView
+                android:id="@+id/textViewPricePizza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/price"
+                android:textColor="@color/design_default_color_on_secondary" />
+        </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/buttonOrder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/buttonOrder"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageViewSubtract"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:src="@drawable/ic_subtract_1"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewAdd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/design_default_color_primary" />
+
+            <ImageView
+                android:id="@+id/imageViewAdd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="end"
+                android:src="@drawable/ic_add_1"
+                app:layout_constraintBottom_toTopOf="@+id/buttonViewQuantity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSubtract"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/design_default_color_primary" />
+
+            <Button
+                android:id="@+id/buttonViewQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="1"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewAdd" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/llContentIngredients"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonOrder"
+            app:layout_constraintStart_toEndOf="@+id/circleImageViewPizza"
+            app:layout_constraintTop_toBottomOf="@+id/llContentPrice">
+
+            <ImageView
+                android:id="@+id/imageIngredientsPizza"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_ingredientes"
+                app:tint="@color/design_default_color_primary" />
+
+            <TextView
+                android:id="@+id/textViewIngredientsPizza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/ingredients"
+                android:textColor="@color/design_default_color_on_secondary" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/order"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/llContentIngredients"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

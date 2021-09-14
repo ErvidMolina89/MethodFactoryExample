@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FactoryImplementation</string>
+    <string name="search_pizza">Search Pizza</string>
+    <string name="list_is_empty">Empty List</string>
+    <string name="pizza">Pizza:</string>
+    <string name="pepperoni">Pepperoni</string>
+    <string name="price">10000</string>
+    <string name="order">Order</string>
+    <string name="ingredients">Carne, Salsa tabasco, Cebolla, Maiz, Aguacate</string>
+    <string name="btn_accept">Accept</string>
+    <string name="title_coste">Coste:</string>
+    <string name="description">Description</string>
+</resources>
