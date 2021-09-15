@@ -32,10 +32,11 @@ class MainRecyclerViewAdapter  (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val item: Pizza = mValues[position]
+        item.price = PizzaFactory.getExtraValuesPizza(item.name!!).getExtraCost()
 
         holder.image_pizza.showImage(item.imageView)
         holder.textViewNamePizza.text = item.name
-        holder.textViewPricePizza.text = PizzaFactory.getExtraValuesPizza(item.name!!).getExtraCost().toString()
+        holder.textViewPricePizza.text = item.price.toString()
         holder.textViewIngredientsPizza.text = PizzaFactory.getExtraValuesPizza(item.name!!).getExtraIngredients()
 
         setOnClickListeners(holder,item)

@@ -26,8 +26,7 @@ class DialogCostPizza : DialogFragment() {
         fun getInstance() : DialogCostPizza {
             if(instance == null )
             {
-                instance =
-                    DialogCostPizza()
+                instance = DialogCostPizza()
             }
             return instance!!
         }
