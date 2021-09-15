@@ -18,6 +18,7 @@ class RecyclerViewModel: ViewModel(){
 
 
     private lateinit var delegate: RecyclerViewModelDelegate
+    private var list: MutableList<Pizza> = emptyList<Pizza>().toMutableList()
 
     private lateinit var binding: ActivityMainBinding
     @SuppressLint("StaticFieldLeak")
@@ -47,7 +48,10 @@ class RecyclerViewModel: ViewModel(){
     }
 
     fun setDataListPizza(){
-        adapter.setData(context.getListExamplePizza())
+        if (list.size == 0) {
+            list = context.getListExamplePizza()
+            adapter.setData(list)
+        }
     }
 
     fun listenerEditTextSearch(){
@@ -57,7 +61,7 @@ class RecyclerViewModel: ViewModel(){
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if (p0.toString() != ""){
                     adapter.setData(p0.toString().filterListPizza(context.getListExamplePizza()))
-                }else adapter.setData(context.getListExamplePizza())}
+                }else adapter.setData(list)}
 
             override fun afterTextChanged(p0: Editable?) {}
 

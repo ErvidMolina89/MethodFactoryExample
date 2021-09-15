@@ -2,6 +2,7 @@ package com.ceiba.factoryimplementation.view.view_model
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.ceiba.factoryimplementation.factory_pizza.PizzaFactory
 import com.ceiba.factoryimplementation.model.Pizza
 import com.ceiba.factoryimplementation.util.DialogCostPizza
 import com.ceiba.factoryimplementation.util.showDialogCostPizza
@@ -19,6 +20,6 @@ class CostViewModel: ViewModel() {
     }
 
     private fun validateCostPizza(pizza: Pizza): Double{
-        return (pizza.count!! * pizza.price!!)
+        return (pizza.count!! * PizzaFactory.getExtraValuesPizza(pizza.name!!).getExtraCost())
     }
 }

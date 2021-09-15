@@ -32,12 +32,12 @@ class MainRecyclerViewAdapter  (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val item: Pizza = mValues[position]
-        item.price = PizzaFactory.getExtraValuesPizza(item.name!!).getExtraCost()
 
         holder.image_pizza.showImage(item.imageView)
         holder.textViewNamePizza.text = item.name
-        holder.textViewPricePizza.text = item.price.toString()
+        holder.textViewPricePizza.text = PizzaFactory.getExtraValuesPizza(item.name!!).getExtraCost().toString()
         holder.textViewIngredientsPizza.text = PizzaFactory.getExtraValuesPizza(item.name!!).getExtraIngredients()
+        holder.buttonViewQuantity.text = item.count.toString()
 
         setOnClickListeners(holder,item)
     }
@@ -48,14 +48,14 @@ class MainRecyclerViewAdapter  (
 
         holder.imageViewAdd.setOnClickListener {
             quantity = quantity.addOne()
-            holder.buttonViewQuantity.text = quantity.toString()
             item.count = quantity
+            holder.buttonViewQuantity.text = item.count.toString()
         }
         holder.imageViewSubtract.setOnClickListener {
             if (holder.buttonViewQuantity.text.toString().toInt() > minimumValuePizzaQuantity){
                 quantity = quantity.subtractOne()
-                holder.buttonViewQuantity.text = quantity.toString()
                 item.count = quantity
+                holder.buttonViewQuantity.text = item.count.toString()
             } else context?.createToast("Este es el valor minimo posible")
         }
 

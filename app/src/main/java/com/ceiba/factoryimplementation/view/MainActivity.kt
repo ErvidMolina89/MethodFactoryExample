@@ -44,6 +44,6 @@ class MainActivity : AppCompatActivity(), RecyclerViewModelDelegate {
     }
 
     override fun responseOnClickItemRecycler(pizza: Pizza) {
-
+        costViewModel.dialogAddVehicle(this, pizza)
     }
 }
