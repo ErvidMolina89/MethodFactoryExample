@@ -11,4 +11,6 @@
     <string name="title_coste">Coste:</string>
     <string name="description">Description</string>
     <string name="pizzeria_ceiba">Pizzeria Ceiba</string>
+    <string name="title_info">"Info: "</string>
+    <string name="btn_cancel">Cancel</string>
 </resources>

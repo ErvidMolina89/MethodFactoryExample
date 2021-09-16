@@ -22,6 +22,7 @@ class DialogCostPizza : DialogFragment() {
         @SuppressLint("StaticFieldLeak")
         private var instance : DialogCostPizza?= null
         private var routeText : String ?= null
+        private var routeTextInfo : String ?= null
 
         fun getInstance() : DialogCostPizza {
             if(instance == null )
@@ -64,20 +65,28 @@ class DialogCostPizza : DialogFragment() {
             details_message?.visibility = View.VISIBLE
             details_message?.setText(routeText!!)
         }
+        if(routeTextInfo != null){
+            details_info?.visibility = View.VISIBLE
+            details_info?.setText(routeTextInfo!!)
+        }
     }
 
     private var image_dialogue_cost : ImageView?= null
-    private var details_message : TextView?= null
     private var title : TextView?= null
+    private var details_info : TextView?= null
+    private var details_message : TextView?= null
     private var btn_ok : Button?= null
+    private var btn_cancel : Button?= null
 
 
     private fun findsViewElements(){
 
         image_dialogue_cost = mainContainer?.findViewById(R.id.image_dialogue_cost)
         details_message     = mainContainer?.findViewById(R.id.details_mess_cost)
+        details_info        = mainContainer?.findViewById(R.id.details_mess_info)
         title               = mainContainer?.findViewById(R.id.title_cost_dialog)
         btn_ok              = mainContainer?.findViewById(R.id.btn_accept_cost)
+        btn_cancel          = mainContainer?.findViewById(R.id.btn_cancel_cost)
 
     }
 
@@ -87,20 +96,21 @@ class DialogCostPizza : DialogFragment() {
     }
 
     private fun fillMessage(){
-        if(routeText == null ){
-            details_message?.visibility = View.GONE
-            return
-        }
-        details_message?.visibility = View.VISIBLE
-        details_message?.setText(routeText!!)
+//        if(routeText == null ){
+//            details_message?.visibility = View.GONE
+//            details_info?.visibility = View.GONE
+//            return
+//        }
+//        details_message?.visibility = View.VISIBLE
+//        details_message?.setText(routeText!!)
+//        details_info?.visibility = View.VISIBLE
+//        details_info?.setText(routeTextInfo!!)
     }
 
 
     private fun addListeners(){
-
-        mainContainer?.setOnClickListener {
+        btn_cancel?.setOnClickListener {
             dismiss()
-            cleanElementsOfSight()
         }
 
         btn_ok?.setOnClickListener {
@@ -149,6 +159,11 @@ class DialogCostPizza : DialogFragment() {
 
     fun withText(routeString : String): DialogCostPizza {
         routeText = routeString
+        return this
+    }
+
+    fun withTextInfo(routeString : String): DialogCostPizza {
+        routeTextInfo = routeString
         return this
     }
 

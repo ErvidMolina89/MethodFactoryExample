@@ -61,6 +61,8 @@ class MainRecyclerViewAdapter  (
 
         holder.buttonOrder.setOnClickListener {
                 listener?.invoke(item)
+                item.count = 1
+                notifyDataSetChanged()
             }
     }
 

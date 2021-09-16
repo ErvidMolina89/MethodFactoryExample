@@ -46,13 +46,28 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/white"
                 android:text="@string/btn_accept"
                 android:textAllCaps="false"
                 android:textColor="@color/design_default_color_primary"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_cancel_cost"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/container_text" />
+
+            <Button
+                android:id="@+id/btn_cancel_cost"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/btn_cancel"
+                android:textAllCaps="false"
+                android:textColor="@color/design_default_color_primary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_accept_cost"
                 app:layout_constraintTop_toBottomOf="@+id/container_text" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -66,39 +81,67 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/image_dialogue_cost">
 
-                <TextView
-                    android:id="@+id/title_cost_dialog"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/linearLayoutInfo"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/title_coste"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/dimen_text_20sp"
-                    android:textColor="@color/white"
+                    android:gravity="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/details_mess_cost"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/title_info_dialog"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/title_info"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_text_20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/details_mess_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/description"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_text_18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutCost"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/description"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/dimen_text_18sp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/title_cost_dialog" />
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayoutInfo">
+
+                    <TextView
+                        android:id="@+id/title_cost_dialog"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/title_coste"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_text_20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/details_mess_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/description"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_text_18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@ class CostViewModel: ViewModel() {
         DialogCostPizza
             .getInstance()
             .withText(validateCostPizza(pizza).toString())
+            .withTextInfo("Son ${pizza.count} de ${pizza.name}")
             .withActionBtnOk {
 
             }
