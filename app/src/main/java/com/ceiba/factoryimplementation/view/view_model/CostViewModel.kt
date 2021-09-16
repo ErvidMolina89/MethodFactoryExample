@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.ceiba.factoryimplementation.factory_pizza.PizzaFactory
 import com.ceiba.factoryimplementation.model.Pizza
 import com.ceiba.factoryimplementation.util.DialogCostPizza
+import com.ceiba.factoryimplementation.util.createToast
 import com.ceiba.factoryimplementation.util.showDialogCostPizza
 
 class CostViewModel: ViewModel() {
@@ -13,9 +14,14 @@ class CostViewModel: ViewModel() {
         DialogCostPizza
             .getInstance()
             .withText(validateCostPizza(pizza).toString())
-            .withTextInfo("Son ${pizza.count} de ${pizza.name}")
+            .withTextInfo(
+                when(pizza.count){
+                    1 -> {" Es ${pizza.count} pizza de ${pizza.name}"}
+                    else -> {" Son ${pizza.count} pizzas de ${pizza.name}"}
+                }
+            )
             .withActionBtnOk {
-
+                context.createToast("Tu pedido se entregará en menos de 20 minutos")
             }
         context.showDialogCostPizza()
     }

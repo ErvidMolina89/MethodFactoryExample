@@ -46,7 +46,6 @@ class DialogCostPizza : DialogFragment() {
         isCancelable = false
 
         findsViewElements()
-        fillView()
         addListeners()
         return mainContainer
     }
@@ -54,7 +53,6 @@ class DialogCostPizza : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         findsViewElements()
-        fillView()
         addListeners()
 
     }
@@ -91,23 +89,6 @@ class DialogCostPizza : DialogFragment() {
     }
 
 
-    private fun fillView(){
-        fillMessage()
-    }
-
-    private fun fillMessage(){
-//        if(routeText == null ){
-//            details_message?.visibility = View.GONE
-//            details_info?.visibility = View.GONE
-//            return
-//        }
-//        details_message?.visibility = View.VISIBLE
-//        details_message?.setText(routeText!!)
-//        details_info?.visibility = View.VISIBLE
-//        details_info?.setText(routeTextInfo!!)
-    }
-
-
     private fun addListeners(){
         btn_cancel?.setOnClickListener {
             dismiss()
@@ -115,6 +96,7 @@ class DialogCostPizza : DialogFragment() {
 
         btn_ok?.setOnClickListener {
             dismiss()
+            invokesActionOk?.invoke()
             cleanElementsOfSight()
         }
     }
