@@ -10,13 +10,15 @@ import com.ceiba.factoryimplementation.util.showDialogCostPizza
 
 class CostViewModel: ViewModel() {
 
+    private val MINIMUM_AMOUNT_PIZZA = 1
+
     fun dialogAddVehicle(context: Context, pizza: Pizza){
         DialogCostPizza
             .getInstance()
             .withText(validateCostPizza(pizza).toString())
             .withTextInfo(
                 when(pizza.count){
-                    1 -> {" Es ${pizza.count} pizza de ${pizza.name}"}
+                    MINIMUM_AMOUNT_PIZZA -> {" Es ${pizza.count} pizza de ${pizza.name}"}
                     else -> {" Son ${pizza.count} pizzas de ${pizza.name}"}
                 }
             )

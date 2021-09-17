@@ -1,18 +1,10 @@
 package com.ceiba.factoryimplementation.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import androidx.activity.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
 import com.ceiba.factoryimplementation.databinding.ActivityMainBinding
-import com.ceiba.factoryimplementation.factory_pizza.PizzaFactory
 import com.ceiba.factoryimplementation.model.Pizza
-import com.ceiba.factoryimplementation.util.PizzaType
-import com.ceiba.factoryimplementation.util.filterListPizza
-import com.ceiba.factoryimplementation.util.getListExamplePizza
 import com.ceiba.factoryimplementation.view.adapter.MainRecyclerViewAdapter
 import com.ceiba.factoryimplementation.view.interfaces.RecyclerViewModelDelegate
 import com.ceiba.factoryimplementation.view.view_model.CostViewModel

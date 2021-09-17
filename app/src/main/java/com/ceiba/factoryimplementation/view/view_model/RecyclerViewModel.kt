@@ -12,7 +12,6 @@ import com.ceiba.factoryimplementation.util.getListExamplePizza
 import com.ceiba.factoryimplementation.view.MainActivity
 import com.ceiba.factoryimplementation.view.adapter.MainRecyclerViewAdapter
 import com.ceiba.factoryimplementation.view.interfaces.RecyclerViewModelDelegate
-import java.util.*
 
 class RecyclerViewModel: ViewModel(){
 
