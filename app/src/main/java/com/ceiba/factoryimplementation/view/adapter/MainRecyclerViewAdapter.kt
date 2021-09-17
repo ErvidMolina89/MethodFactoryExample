@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ceiba.factoryimplementation.R
 import com.ceiba.factoryimplementation.factory_pizza.PizzaFactory
+import com.ceiba.factoryimplementation.model.Invoice
 import com.ceiba.factoryimplementation.model.Pizza
 import com.ceiba.factoryimplementation.util.addOne
 import com.ceiba.factoryimplementation.util.createToast
@@ -22,7 +23,7 @@ class MainRecyclerViewAdapter  (
     private var mValues: MutableList<Pizza>
 ) : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {
 
-    private var listener: ((Pizza)-> Unit)? = null
+    private var listener: ((Invoice)-> Unit)? = null
     private val minimumValuePizzaQuantity = 1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,36 +36,40 @@ class MainRecyclerViewAdapter  (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val item: Pizza = mValues[position]
+        val invoice = Invoice(1,
+            PizzaFactory.getExtraValuesPizza(item.name!!).getExtraCost(),
+            item.name!!
+        )
 
         holder.image_pizza.showImage(item.imageView)
         holder.textViewNamePizza.text = item.name
         holder.textViewPricePizza.text = PizzaFactory.getExtraValuesPizza(item.name!!).getExtraCost().toString()
         holder.textViewIngredientsPizza.text = PizzaFactory.getExtraValuesPizza(item.name!!).getExtraIngredients()
-        holder.buttonViewQuantity.text = item.count.toString()
+        holder.buttonViewQuantity.text = invoice.count.toString()
 
-        setOnClickListeners(holder,item)
+        setOnClickListeners(holder, invoice)
     }
 
-    private fun setOnClickListeners(holder : ViewHolder, item : Pizza){
+    private fun setOnClickListeners(holder : ViewHolder, invoice : Invoice){
 
-        var quantity: Int = item.count!!
+        var quantity: Int = invoice.count!!
 
         holder.imageViewAdd.setOnClickListener {
             quantity = quantity.addOne()
-            item.count = quantity
-            holder.buttonViewQuantity.text = item.count.toString()
+            invoice.count = quantity
+            holder.buttonViewQuantity.text = invoice.count.toString()
         }
         holder.imageViewSubtract.setOnClickListener {
             if (holder.buttonViewQuantity.text.toString().toInt() > minimumValuePizzaQuantity){
                 quantity = quantity.subtractOne()
-                item.count = quantity
-                holder.buttonViewQuantity.text = item.count.toString()
+                invoice.count = quantity
+                holder.buttonViewQuantity.text = invoice.count.toString()
             } else context?.createToast("Este es el valor minimo posible")
         }
 
         holder.buttonOrder.setOnClickListener {
-                listener?.invoke(item)
-                item.count = 1
+                listener?.invoke(invoice)
+                invoice.count = 1
                 notifyDataSetChanged()
             }
     }
@@ -76,7 +81,7 @@ class MainRecyclerViewAdapter  (
         notifyDataSetChanged()
     }
 
-    fun onClickListener(listener : (Pizza)-> Unit){
+    fun onClickListener(listener : (Invoice)-> Unit){
         this.listener = listener
     }
 

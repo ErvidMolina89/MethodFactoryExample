@@ -1,7 +1,7 @@
 package com.ceiba.factoryimplementation.view.interfaces
 
-import com.ceiba.factoryimplementation.model.Pizza
+import com.ceiba.factoryimplementation.model.Invoice
 
 interface RecyclerViewModelDelegate {
-    fun responseOnClickItemRecycler(pizza: Pizza)
+    fun responseOnClickItemRecycler(invoice: Invoice)
 }

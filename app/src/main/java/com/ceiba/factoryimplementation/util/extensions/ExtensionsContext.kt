@@ -39,19 +39,19 @@ private fun getContextValid(contex : Context) : Context{
 
 fun Context.getListExamplePizza(): MutableList<Pizza>{
     val list = emptyList<Pizza>().toMutableList()
-    var pizza = Pizza(PizzaType.ORIGINAL.getName(), 1, PizzaType.ORIGINAL.getImage())
+    var pizza = Pizza(PizzaType.ORIGINAL.getName(), PizzaType.ORIGINAL.getImage())
     list.add(0, pizza)
 
-    pizza = Pizza(PizzaType.MEATS.getName(), 1, PizzaType.MEATS.getImage())
+    pizza = Pizza(PizzaType.MEATS.getName(), PizzaType.MEATS.getImage())
     list.add(1, pizza)
 
-    pizza = Pizza(PizzaType.MEXICAN.getName(), 1, PizzaType.MEXICAN.getImage())
+    pizza = Pizza(PizzaType.MEXICAN.getName(), PizzaType.MEXICAN.getImage())
     list.add(2, pizza)
 
-    pizza = Pizza(PizzaType.VEGETARIAN.getName(), 1, PizzaType.VEGETARIAN.getImage())
+    pizza = Pizza(PizzaType.VEGETARIAN.getName(), PizzaType.VEGETARIAN.getImage())
     list.add(3, pizza)
 
-    pizza = Pizza(PizzaType.SPECIAL.getName(), 1, PizzaType.SPECIAL.getImage())
+    pizza = Pizza(PizzaType.SPECIAL.getName(), PizzaType.SPECIAL.getImage())
     list.add(4, pizza)
 
     return list

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.ceiba.factoryimplementation.databinding.ActivityMainBinding
+import com.ceiba.factoryimplementation.model.Invoice
 import com.ceiba.factoryimplementation.model.Pizza
 import com.ceiba.factoryimplementation.view.adapter.MainRecyclerViewAdapter
 import com.ceiba.factoryimplementation.view.interfaces.RecyclerViewModelDelegate
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewModelDelegate {
 
     }
 
-    override fun responseOnClickItemRecycler(pizza: Pizza) {
-        costViewModel.dialogAddVehicle(this, pizza)
+    override fun responseOnClickItemRecycler(invoice: Invoice) {
+        costViewModel.dialogAddVehicle(this, invoice)
     }
 }
