@@ -3,7 +3,7 @@ package com.ceiba.factoryimplementation.view.view_model
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.ceiba.factoryimplementation.model.Invoice
-import com.ceiba.factoryimplementation.util.DialogCostPizza
+import com.ceiba.factoryimplementation.view.DialogCostPizza
 import com.ceiba.factoryimplementation.util.createToast
 import com.ceiba.factoryimplementation.util.showDialogCostPizza
 

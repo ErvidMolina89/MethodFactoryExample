@@ -3,6 +3,7 @@ package com.ceiba.factoryimplementation.view
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ceiba.factoryimplementation.databinding.ActivityMainBinding
 import com.ceiba.factoryimplementation.model.Invoice
 import com.ceiba.factoryimplementation.model.Pizza
@@ -29,11 +30,22 @@ class MainActivity : AppCompatActivity(), RecyclerViewModelDelegate {
         recyclerViewModel.setDelegate(this)
 
         //call recycler
-        recyclerViewModel.onStyleRecycler(binding, this@MainActivity)
+        onStyleRecycler()
         recyclerViewModel.listenerRecycler(adapter)
-        recyclerViewModel.listenerEditTextSearch()
+        recyclerViewModel.listenerEditTextSearch(binding)
         recyclerViewModel.setDataListPizza()
 
+    }
+
+    private fun onStyleRecycler() {
+        binding.recyclerViewSearchResults.let {
+            it.layoutManager  = LinearLayoutManager(this@MainActivity)
+            this.adapter = MainRecyclerViewAdapter(
+                this,
+                emptyList<Pizza>().toMutableList()
+            )
+            binding.recyclerViewSearchResults.adapter = this.adapter
+        }
     }
 
     override fun responseOnClickItemRecycler(invoice: Invoice) {

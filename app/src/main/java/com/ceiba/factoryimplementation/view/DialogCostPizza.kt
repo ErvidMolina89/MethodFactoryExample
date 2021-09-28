@@ -1,4 +1,4 @@
-package com.ceiba.factoryimplementation.util
+package com.ceiba.factoryimplementation.view
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -15,7 +15,8 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.ceiba.factoryimplementation.R
 
-class DialogCostPizza : DialogFragment() {
+class DialogCostPizza  private constructor()
+    : DialogFragment() {
 
     companion object{
         private var showingDialog = false
@@ -33,8 +34,16 @@ class DialogCostPizza : DialogFragment() {
         }
     }
 
+    private var image_dialogue_cost : ImageView?= null
+    private var title : TextView?= null
+    private var details_info : TextView?= null
+    private var details_message : TextView?= null
+    private var btn_ok : Button?= null
+    private var btn_cancel : Button?= null
 
     private var mainContainer : View?= null
+    private var invokesActionOk:(()->Unit)?= null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -69,14 +78,6 @@ class DialogCostPizza : DialogFragment() {
         }
     }
 
-    private var image_dialogue_cost : ImageView?= null
-    private var title : TextView?= null
-    private var details_info : TextView?= null
-    private var details_message : TextView?= null
-    private var btn_ok : Button?= null
-    private var btn_cancel : Button?= null
-
-
     private fun findsViewElements(){
 
         image_dialogue_cost = mainContainer?.findViewById(R.id.image_dialogue_cost)
@@ -87,7 +88,6 @@ class DialogCostPizza : DialogFragment() {
         btn_cancel          = mainContainer?.findViewById(R.id.btn_cancel_cost)
 
     }
-
 
     private fun addListeners(){
         btn_cancel?.setOnClickListener {
@@ -116,7 +116,6 @@ class DialogCostPizza : DialogFragment() {
         super.dismissAllowingStateLoss()
     }
 
-
     override fun onStart() {
         dialog?.window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
         super.onStart()
@@ -133,7 +132,6 @@ class DialogCostPizza : DialogFragment() {
         }
     }
 
-    private var invokesActionOk:(()->Unit)?= null
     fun withActionBtnOk(actionOk : ()->Unit) : DialogCostPizza {
         this.invokesActionOk = actionOk
         return this
